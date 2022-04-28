@@ -1,0 +1,27 @@
+private static void append() throws IOException {
+        File src = new File(".\\src\\main\\java\\dumpfile.txt");
+        File dest = new File(".\\src\\main\\java\\db_init.txt");
+        //DELETE contents of db_init.txt
+        try {
+            FileWriter fw = new FileWriter(dest);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("");
+            bw.close();
+        } catch (IOException ioe) {
+            System.out.println("Exception occurred:");
+            ioe.printStackTrace();
+        }
+
+        copyFileUsingStream(src, dest);
+        try {
+            FileWriter fw = new FileWriter(dest, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(sql);
+            bw.close();
+        } catch (IOException ioe) {
+            System.out.println("Exception occurred:");
+            ioe.printStackTrace();
+        }
+
+
+    }
