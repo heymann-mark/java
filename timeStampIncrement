@@ -1,0 +1,12 @@
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.util.Calendar;
+
+public static Timestamp timeStamp() {
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(instant);
+    cal.add(Calendar.MILLISECOND, 1);
+    instant.setTime(cal.getTime().getTime());
+    instant = new Timestamp(cal.getTime().getTime());
+    return instant;
+}
